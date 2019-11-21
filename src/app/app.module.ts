@@ -12,6 +12,7 @@ import { TodoListItemComponent } from './todo-list-item/todo-list-item.component
 import { ApiService } from './api.service';
 import { TimerComponent } from './timer/timer.component';
 import { TimerCountdownComponent } from './timer-countdown/timer-countdown.component';
+import { TimerLabelComponent } from './timer-label/timer-label.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { TimerCountdownComponent } from './timer-countdown/timer-countdown.compo
     TodoListHeaderComponent,
     TodoListItemComponent,
     TimerComponent,
-    TimerCountdownComponent
+    TimerCountdownComponent,
+    TimerLabelComponent
   ],
   imports: [
     BrowserModule,
