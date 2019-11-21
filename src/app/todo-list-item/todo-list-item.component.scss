@@ -1,0 +1,9 @@
+.view__label {
+  width: 190px;
+  padding-right: 15px;
+
+  /* Tablets, PCs */
+  @media (min-width: 768px) {
+    width: 350px;
+  }
+}
