@@ -12,7 +12,7 @@ export class TimerCountdownComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.svgPath = this.getSvgPath(180);
+    this.svgPath = this.getSvgPath(359);
   }
 
   getSvgPath(angle: number) {
