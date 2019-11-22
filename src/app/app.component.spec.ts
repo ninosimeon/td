@@ -1,8 +1,8 @@
-import { TestBed, async } from '@angular/core/testing';
+import { async, TestBed } from '@angular/core/testing';
 import { AppComponent } from './app.component';
 import { NO_ERRORS_SCHEMA } from '@angular/core';
 import { ApiService } from './api.service';
-import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { HttpModule } from '@angular/http';
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
@@ -10,8 +10,8 @@ describe('AppComponent', () => {
       declarations: [
         AppComponent
       ],
-      imports: [HttpClientTestingModule],
-      providers: [ApiService, ],
+      imports: [HttpModule],
+      providers: [ApiService,],
       schemas: [NO_ERRORS_SCHEMA],
     }).compileComponents();
   }));
