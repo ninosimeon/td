@@ -9,6 +9,7 @@ import { Todo } from '../todo';
   selector: 'app-timer',
   templateUrl: './timer.component.html',
   styleUrls: ['./timer.component.scss'],
+  providers: [TimerService],
 })
 export class TimerComponent implements OnInit, OnDestroy {
   private _item: Todo;
