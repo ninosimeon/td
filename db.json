@@ -2,7 +2,7 @@
   "todos": [
     {
       "title": "my first task",
-      "complete": false,
+      "complete": true,
       "lapsedSeconds": 5,
       "remainingSeconds": 1795,
       "id": 1
