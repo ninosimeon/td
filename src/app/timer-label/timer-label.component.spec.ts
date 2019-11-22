@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { TimerLabelComponent } from './timer-label.component';
+import { TimeDisplayPipe } from '../time-display.pipe';
 
 describe('TimerLabelComponent', () => {
   let component: TimerLabelComponent;
@@ -8,7 +9,7 @@ describe('TimerLabelComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ TimerLabelComponent ]
+      declarations: [ TimerLabelComponent , TimeDisplayPipe]
     })
     .compileComponents();
   }));
