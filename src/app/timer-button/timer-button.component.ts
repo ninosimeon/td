@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { TimerButtonState } from '../timer/timer.configuration';
 
 @Component({
   selector: 'app-timer-button',
@@ -6,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./timer-button.component.scss']
 })
 export class TimerButtonComponent implements OnInit {
+  @Input() buttonState: TimerButtonState;
 
   constructor() { }
 
