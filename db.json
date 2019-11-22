@@ -3,15 +3,15 @@
     {
       "title": "my first task",
       "complete": false,
-      "lapsedSeconds": 60,
-      "remainingSeconds": 0,
+      "lapsedSeconds": 5,
+      "remainingSeconds": 1795,
       "id": 1
     },
     {
       "title": "abc",
       "complete": false,
-      "lapsedSeconds": 3,
-      "remainingSeconds": 57,
+      "lapsedSeconds": 2,
+      "remainingSeconds": 1798,
       "id": 2
     }
   ]
