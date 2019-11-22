@@ -1,7 +1,7 @@
 /* tslint:disable:no-unused-variable */
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
-import { DebugElement } from '@angular/core';
+import { DebugElement, NO_ERRORS_SCHEMA } from '@angular/core';
 
 import { TodoListItemComponent } from './todo-list-item.component';
 import { Todo } from '../todo';
@@ -12,7 +12,8 @@ describe('TodoListItemComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ TodoListItemComponent ]
+      declarations: [ TodoListItemComponent ],
+      schemas: [NO_ERRORS_SCHEMA],
     })
     .compileComponents();
   }));
@@ -20,7 +21,7 @@ describe('TodoListItemComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(TodoListItemComponent);
     component = fixture.componentInstance;
-    component.todo = new Todo({ id: 1, title: 'Test', complete: false });
+    component.todo = new Todo({ id: 1, title: 'Test', complete: false , lapsedSeconds: 0, remainingSeconds: 1800});
     fixture.detectChanges();
   });
 

@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { TimerComponent } from './timer.component';
+import { NO_ERRORS_SCHEMA } from '@angular/core';
 
 describe('TimerComponent', () => {
   let component: TimerComponent;
@@ -8,7 +9,8 @@ describe('TimerComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ TimerComponent ]
+      declarations: [ TimerComponent ],
+      schemas: [NO_ERRORS_SCHEMA],
     })
     .compileComponents();
   }));
