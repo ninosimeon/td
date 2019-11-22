@@ -38,6 +38,7 @@ export class TimerComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.timerService.onTimer().pipe(
+        takeUntil(this.destroy$),
         switchMap((running: boolean) => {
           return running ? timer(0, TimerConfiguration.LapseIntervalMiliseconds) : NEVER;
         }),
