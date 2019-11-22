@@ -15,7 +15,7 @@ export class TimerComponent implements OnInit, OnDestroy {
 
   @Input() set item(value: Todo) {
     this._item = value;
-    this.remainingSeconds = value.remainingSeconds;
+    this.currentSeconds = this.remainingSeconds = value.remainingSeconds;
   }
 
   get item() {
@@ -24,12 +24,12 @@ export class TimerComponent implements OnInit, OnDestroy {
 
   buttonState = TimerButtonState.Play;
   remainingSeconds: number;
-  currentSeconds = 0;
+  // temporary parameter to hold the "current time" in seconds.
+  currentSeconds: number;
   private destroy$ = new Subject<void>();
 
   constructor(private timerService: TimerService) {
   }
-
 
   ngOnInit(): void {
     this.timerService.onTimer().pipe(
@@ -39,14 +39,14 @@ export class TimerComponent implements OnInit, OnDestroy {
         map((lapsedSeconds: number) => this.timerService.remainingSeconds(lapsedSeconds, this.remainingSeconds)),
         takeWhile(time => time >= 0),
         tap(miliseconds => this.currentSeconds = miliseconds),
-    ).subscribe(e => console.log(1, e));
+    ).subscribe();
     this.timerService.onTimer().pipe(
         takeUntil(this.destroy$),
         filter((toggled: boolean) => !toggled),
-    ).subscribe(() => {
-      console.log(2, this.currentSeconds);
-      this.remainingSeconds = this.currentSeconds;
-    });
+        tap(() => {
+          this.remainingSeconds = this.currentSeconds;
+        }),
+    ).subscribe();
   }
 
   ngOnDestroy(): void {
