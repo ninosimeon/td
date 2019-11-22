@@ -4,4 +4,8 @@
 
 .timer__label {
   font-size: 12px;
+
+  &--hidden {
+    visibility: hidden;
+  }
 }
