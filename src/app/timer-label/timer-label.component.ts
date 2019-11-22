@@ -1,15 +1,17 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
+import { LimitSeconds } from '../timer/timer.configuration';
 
 @Component({
   selector: 'app-timer-label',
   templateUrl: './timer-label.component.html',
-  styleUrls: ['./timer-label.component.scss']
+  styleUrls: ['./timer-label.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class TimerLabelComponent implements OnInit {
+export class TimerLabelComponent {
+  lapsedSeconds = 0;
 
-  constructor() { }
-
-  ngOnInit() {
+  @Input() set remainingSeconds(value: number) {
+    this.lapsedSeconds = LimitSeconds - value;
   }
 
 }

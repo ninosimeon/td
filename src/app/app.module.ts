@@ -14,6 +14,7 @@ import { TimerComponent } from './timer/timer.component';
 import { TimerCountdownComponent } from './timer-countdown/timer-countdown.component';
 import { TimerLabelComponent } from './timer-label/timer-label.component';
 import { TimerButtonComponent } from './timer-button/timer-button.component';
+import { TimeDisplayPipe } from './time-display.pipe';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { TimerButtonComponent } from './timer-button/timer-button.component';
     TimerComponent,
     TimerCountdownComponent,
     TimerLabelComponent,
-    TimerButtonComponent
+    TimerButtonComponent,
+    TimeDisplayPipe,
   ],
   imports: [
     BrowserModule,

@@ -10,7 +10,7 @@ import { LimitSeconds } from '../timer/timer.configuration';
 export class TimerCountdownComponent {
   svgPath: string;
 
-  @Input() set lapsedSeconds(value: number) {
+  @Input() set remainingSeconds(value: number) {
     this.setupAngle(value);
   }
 
