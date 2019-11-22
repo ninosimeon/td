@@ -3,8 +3,8 @@
     {
       "title": "my first task",
       "complete": false,
-      "lapsedSeconds": 12,
-      "remainingSeconds": 48,
+      "lapsedSeconds": 60,
+      "remainingSeconds": 0,
       "id": 1
     },
     {
