@@ -1,5 +1,5 @@
-import { Component, Input, OnDestroy, OnInit } from '@angular/core';
-import { TimerButtonState, TimerConfiguration } from './timer.configuration';
+import { Component, EventEmitter, Input, OnDestroy, OnInit, Output } from '@angular/core';
+import { LimitSeconds, TimerButtonState, TimerConfiguration } from './timer.configuration';
 import { NEVER, Subject, timer } from 'rxjs';
 import { filter, map, switchMap, takeUntil, takeWhile, tap } from 'rxjs/operators';
 import { TimerService } from '../timer.service';
@@ -23,13 +23,17 @@ export class TimerComponent implements OnInit, OnDestroy {
     return this._item;
   }
 
+  @Output() updateTodo = new EventEmitter<Todo>();
+
   buttonState = TimerButtonState.Play;
   remainingSeconds: number;
   // temporary parameter to hold the "current time" in seconds.
   currentSeconds: number;
   private destroy$ = new Subject<void>();
 
-  constructor(private timerService: TimerService) {
+  constructor(
+      private timerService: TimerService,
+  ) {
   }
 
   ngOnInit(): void {
@@ -40,12 +44,13 @@ export class TimerComponent implements OnInit, OnDestroy {
         map((lapsedSeconds: number) => this.timerService.remainingSeconds(lapsedSeconds, this.remainingSeconds)),
         takeWhile(time => time >= 0),
         tap(miliseconds => this.currentSeconds = miliseconds),
-    ).subscribe();
+    ).subscribe(() => null, () => null, () => this.updateItem(0));
     this.timerService.onTimer().pipe(
         takeUntil(this.destroy$),
         filter((toggled: boolean) => !toggled),
         tap(() => {
           this.remainingSeconds = this.currentSeconds;
+          this.updateItem(this.remainingSeconds);
         }),
     ).subscribe();
   }
@@ -58,5 +63,10 @@ export class TimerComponent implements OnInit, OnDestroy {
   toggleTimerButton() {
     this.buttonState = (this.buttonState === TimerButtonState.Play) ? TimerButtonState.Pause : TimerButtonState.Play;
     (this.buttonState === TimerButtonState.Pause) ? this.timerService.timer(true) : this.timerService.timer(false);
+  }
+
+  updateItem(remainingSeconds: number) {
+    const lapsedSeconds = LimitSeconds - remainingSeconds;
+    this.updateTodo.emit({...this.item, remainingSeconds, lapsedSeconds});
   }
 }

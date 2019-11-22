@@ -4,7 +4,7 @@ export class Todo {
   id: number;
   title = '';
   complete = false;
-  secondsLapsed = 0;
+  lapsedSeconds = 0;
   remainingSeconds = LimitSeconds;
 
   constructor(values: Object = {}) {
