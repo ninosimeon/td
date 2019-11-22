@@ -16,6 +16,9 @@ export class TodoListItemComponent {
   @Output()
   toggleComplete: EventEmitter<Todo> = new EventEmitter();
 
+  @Output()
+  update: EventEmitter<Todo> = new EventEmitter();
+
   constructor() {
   }
 
@@ -27,4 +30,7 @@ export class TodoListItemComponent {
     this.remove.emit(todo);
   }
 
+  updateTodo(todo: Todo) {
+    this.update.emit(todo);
+  }
 }

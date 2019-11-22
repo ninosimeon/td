@@ -10,6 +10,11 @@ import { TodoListHeaderComponent } from './todo-list-header/todo-list-header.com
 import { TodoDataService } from './todo-data.service';
 import { TodoListItemComponent } from './todo-list-item/todo-list-item.component';
 import { ApiService } from './api.service';
+import { TimerComponent } from './timer/timer.component';
+import { TimerCountdownComponent } from './timer-countdown/timer-countdown.component';
+import { TimerLabelComponent } from './timer-label/timer-label.component';
+import { TimerButtonComponent } from './timer-button/timer-button.component';
+import { TimeDisplayPipe } from './time-display.pipe';
 
 @NgModule({
   declarations: [
@@ -17,7 +22,12 @@ import { ApiService } from './api.service';
     TodoListComponent,
     TodoListFooterComponent,
     TodoListHeaderComponent,
-    TodoListItemComponent
+    TodoListItemComponent,
+    TimerComponent,
+    TimerCountdownComponent,
+    TimerLabelComponent,
+    TimerButtonComponent,
+    TimeDisplayPipe,
   ],
   imports: [
     BrowserModule,
