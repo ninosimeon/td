@@ -12,6 +12,7 @@ export class TimerLabelComponent {
 
   @Input() set remainingSeconds(value: number) {
     this.lapsedSeconds = LimitSeconds - value;
+    console.log(this.lapsedSeconds);
   }
 
 }
